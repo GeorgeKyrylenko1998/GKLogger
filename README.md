@@ -28,6 +28,30 @@
 - Xcode 11.0+
 - Swift 5.0+
 
+  
+  ### Installation Instructions for GKLogger via Swift Package Manager (SPM)
+
+You can add **GKLogger** to your project using Swift Package Manager (SPM) by following these steps:
+
+### Step 1: Add GKLogger as a Package Dependency
+
+1. Open your Xcode project.
+2. Select your project in the Xcode project navigator.
+3. In the project editor, select the **Package Dependencies** tab.
+4. Click the **+** button at the bottom of the list of packages.
+5. In the dialog that appears, enter the repository URL:
+
+```
+https://github.com/GeorgeKyrylenko1998/GKLogger
+```
+
+6. Choose the version or branch you want to use:
+   - Use the **Up to Next Major Version** rule if you want to receive updates that don’t include breaking changes.
+   - Use **Exact Version** if you want a specific version.
+   - You can also choose a specific branch, such as `main`.
+
+7. Click **Add Package**.
+
 ## Usage
 
 ### Logging Messages
