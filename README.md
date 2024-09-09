@@ -19,7 +19,6 @@
   - [Retrieving Logs as Data](#retrieving-logs-as-data)
   - [Exporting Logs to File](#exporting-logs-to-file)
   - [Configuring Log Levels](#configuring-log-levels)
-- [CoreData Setup](#coredata-setup)
 
 ## Installation
 
@@ -76,33 +75,6 @@ GKLogger.logLevel = .warning
 ```
 
 In this example, only messages of level `.warning` and higher (e.g., `.error`) will be logged.
-
-## CoreData Setup
-
-The logger relies on a CoreData model named `GKLogs`. To guarantee the database exists, ensure the CoreData `.momd` model is properly bundled with your project. The `persistentContainer` ensures that the CoreData stack is loaded, and logs are stored reliably.
-
-- CoreData model: `GKLogs.xcdatamodeld`
-- Attributes:
-  - `date`: Date (Optional)
-  - `type`: Int32 (Required)
-  - `thread`: String (Optional)
-  - `message`: String (Optional)
-
-```swift
-private static var persistentContainer: NSPersistentContainer = {
-    let bundle = Bundle.module
-    let modelURL = bundle.url(forResource: "GKLogs", withExtension: ".momd")!
-    let model = NSManagedObjectModel(contentsOf: modelURL)!
-    let container = NSPersistentContainer(name: "GKLogs", managedObjectModel: model)
-    container.loadPersistentStores { (storeDescription, error) in
-        if let error = error {
-            fatalError("Failed to load Core Data stack: \(error)")
-        }
-        container.viewContext.automaticallyMergesChangesFromParent = true
-    }
-    return container
-}()
-```
 
 ---
 
